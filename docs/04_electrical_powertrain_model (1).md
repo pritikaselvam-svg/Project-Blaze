@@ -211,7 +211,7 @@ For each motor:
 
 $$
 P_{mech,i}=T_i\omega_i
-$$
+
 
 where $T_i$ is motor torque in N·m and $\omega_i$ is angular speed in rad/s.
 
@@ -226,17 +226,17 @@ where $n_i$ is motor speed in rpm.
 Therefore:
 
 $$
-P_{mech,i}
+P_{mech,i}$$
 =
-T_i\frac{2\pi n_i}{60}
+$$T_i\frac{2\pi n_i}{60}
 $$
 
 If power is expressed in kW:
 
 $$
-P_{mech,i}[kW]
+P_{mech,i}[kW]$$
 =
-\frac{T_i n_i}{9550}
+$$\frac{T_i n_i}{9550}
 $$
 
 ---
