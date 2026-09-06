@@ -246,33 +246,33 @@ $$
 Define:
 
 $$
-\eta_{motor,i}
+\eta_{motor,i}$$
 =
-\frac{P_{mech,i}}{P_{motor,elec,i}}
+$$\frac{P_{mech,i}}{P_{motor,elec,i}}
 $$
 
 Therefore:
 
 $$
-P_{motor,elec,i}
+P_{motor,elec,i}$$
 =
-\frac{P_{mech,i}}{\eta_{motor,i}}
+$$\frac{P_{mech,i}}{\eta_{motor,i}}
 $$
 
 Motor loss:
 
 $$
-P_{motor,loss,i}
+P_{motor,loss,i}$$
 =
-P_{motor,elec,i}-P_{mech,i}
+$$P_{motor,elec,i}-P_{mech,i}
 $$
 
 or:
 
 $$
-P_{motor,loss,i}
+P_{motor,loss,i}$$
 =
-P_{mech,i}
+$$P_{mech,i}
 \left(
 \frac{1}{\eta_{motor,i}}-1
 \right)
@@ -287,33 +287,33 @@ For a research-grade implementation, $\eta_{motor}$ should eventually be replace
 Define:
 
 $$
-\eta_{inv,i}
+\eta_{inv,i}$$
 =
-\frac{P_{motor,elec,i}}{P_{inv,dc,i}}
+$$\frac{P_{motor,elec,i}}{P_{inv,dc,i}}
 $$
 
 Therefore:
 
 $$
-P_{inv,dc,i}
+P_{inv,dc,i}$$
 =
-\frac{P_{motor,elec,i}}{\eta_{inv,i}}
+$$\frac{P_{motor,elec,i}}{\eta_{inv,i}}
 $$
 
 Inverter loss:
 
 $$
-P_{inv,loss,i}
+P_{inv,loss,i}$$
 =
-P_{inv,dc,i}-P_{motor,elec,i}
+$$P_{inv,dc,i}-P_{motor,elec,i}
 $$
 
 or:
 
 $$
-P_{inv,loss,i}
+P_{inv,loss,i}$$
 =
-P_{motor,elec,i}
+$$P_{motor,elec,i}
 \left(
 \frac{1}{\eta_{inv,i}}-1
 \right)
@@ -367,31 +367,31 @@ Architecture B has two traction paths:
 Total mechanical power:
 
 $$
-P_{mech,B}
+P_{mech,B}$$
 =
-P_{mech,RL}+P_{mech,RR}
+$$P_{mech,RL}+P_{mech,RR}
 $$
 
 Total battery-side traction power:
 
 $$
-P_{batt,B}
+P_{batt,B}$$
 =
-\sum_{i=RL,RR}
+$$\sum_{i=RL,RR}
 \frac{P_{mech,i}}
-{\eta_{motor,i}\eta_{inv,i}}
+{\eta_{motor,i}\eta_{inv,i}}$$
 +
-P_{cable,loss,B}
+$$P_{cable,loss,B}$$
 +
-P_{aux}
+$$P_{aux}
 $$
 
 Battery current:
 
 $$
-I_{batt,B}
+I_{batt,B}$$
 =
-\frac{P_{batt,B}}{V_{batt}}
+$$\frac{P_{batt,B}}{V_{batt}}
 $$
 
 ---
@@ -416,35 +416,35 @@ Architecture C has three traction paths:
 Total mechanical power:
 
 $$
-P_{mech,C}
+P_{mech,C}$$
 =
-P_{mech,F}
+$$P_{mech,F}$$
 +
-P_{mech,RL}
+$$P_{mech,RL}$$
 +
-P_{mech,RR}
+$$P_{mech,RR}
 $$
 
 Total battery-side traction power:
 
 $$
-P_{batt,C}
+P_{batt,C}$$
 =
-\sum_{i=F,RL,RR}
+$$\sum_{i=F,RL,RR}
 \frac{P_{mech,i}}
-{\eta_{motor,i}\eta_{inv,i}}
+{\eta_{motor,i}\eta_{inv,i}}$$
 +
-P_{cable,loss,C}
+$$P_{cable,loss,C}$$
 +
-P_{aux}
+$$P_{aux}
 $$
 
 Battery current:
 
 $$
-I_{batt,C}
+I_{batt,C}$$
 =
-\frac{P_{batt,C}}{V_{batt}}
+$$\frac{P_{batt,C}}{V_{batt}}
 $$
 
 ---
@@ -478,32 +478,32 @@ This allows different power distributions without changing the total power ceili
 Overall traction efficiency:
 
 $$
-\eta_{total}
+\eta_{total}$$
 =
-\frac{P_{mech,total}}
-{P_{batt,total}}
+$$\frac{P_{mech,total}}$$
+$${P_{batt,total}}
 $$
 
 Total electrical loss:
 
 $$
-P_{loss,total}
+P_{loss,total}$$
 =
-P_{batt,total}-P_{mech,total}
+$$P_{batt,total}-P_{mech,total}
 $$
 
 Expanded:
 
 $$
-P_{loss,total}
+P_{loss,total}$$
 =
-P_{motor,loss}
+$$P_{motor,loss}$$
 +
-P_{inv,loss}
+$$P_{inv,loss}$$
 +
-P_{cable,loss}
+$$P_{cable,loss}$$
 +
-P_{aux}
+$$P_{aux}
 $$
 
 ---
@@ -533,11 +533,11 @@ The first-order model may use a fixed battery voltage.
 The refined model uses:
 
 $$
-V_{terminal}
+V_{terminal}$$
 =
-V_{OCV}(SOC,T)
+$$V_{OCV}(SOC,T)$$
 -
-I_{batt}R_{pack}(SOC,T)
+$$I_{batt}R_{pack}(SOC,T)
 $$
 
 where:
@@ -610,11 +610,11 @@ for the selected discharge sign convention.
 A more complete model can include coulombic efficiency:
 
 $$
-SOC_{k+1}
+SOC_{k+1}$$
 =
-SOC_k
+$$SOC_k$$
 -
-\frac{I_{batt,k}\Delta t}
+$$\frac{I_{batt,k}\Delta t}
 {\eta_{coul}Q_{pack}3600}
 $$
 
