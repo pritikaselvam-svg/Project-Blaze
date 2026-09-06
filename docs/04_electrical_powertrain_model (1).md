@@ -529,8 +529,7 @@ The first-order model may use a fixed battery voltage.
 
 The refined model uses:
 
-$
-V_{terminal}$
+$$V_{terminal}$$
 =
 $$V_{OCV}(SOC,T)$$
 -
