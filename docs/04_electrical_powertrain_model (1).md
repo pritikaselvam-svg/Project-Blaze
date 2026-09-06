@@ -181,20 +181,17 @@ This is below the stated 45 A continuous discharge rating for the P45B under its
 
 For a generic motor path:
 
-$$
-P_{batt,i}
+$$P_{batt,i}
 \rightarrow
 P_{inv,i}
 \rightarrow
 P_{motor,elec,i}
 \rightarrow
-P_{motor,mech,i}
-$$
+P_{motor,mech,i}$$
 
 The battery must supply:
 
-$$
-P_{batt,total}$$
+$$P_{batt,total}$$
 =
 $$\sum_i P_{batt,i}$$
 +
@@ -209,35 +206,28 @@ where $P_{aux}$ includes non-traction electrical loads such as VCU, sensors, pum
 
 For each motor:
 
-$$
-P_{mech,i}=T_i\omega_i
+$$P_{mech,i}=T_i\omega_i$$
 
 
 where $T_i$ is motor torque in N·m and $\omega_i$ is angular speed in rad/s.
 
 Motor speed conversion:
 
-$$
-\omega_i=\frac{2\pi n_i}{60}
-$$
+$$\omega_i=\frac{2\pi n_i}{60}$$
 
 where $n_i$ is motor speed in rpm.
 
 Therefore:
 
-$$
-P_{mech,i}$$
+$$P_{mech,i}$$
 =
-$$T_i\frac{2\pi n_i}{60}
-$$
+$$T_i\frac{2\pi n_i}{60}$$
 
 If power is expressed in kW:
 
-$$
-P_{mech,i}[kW]$$
+$$P_{mech,i}[kW]$$
 =
-$$\frac{T_i n_i}{9550}
-$$
+$$\frac{T_i n_i}{9550}$$
 
 ---
 
@@ -245,38 +235,30 @@ $$
 
 Define:
 
-$$
-\eta_{motor,i}$$
+$$\eta_{motor,i}$$
 =
-$$\frac{P_{mech,i}}{P_{motor,elec,i}}
-$$
+$$\frac{P_{mech,i}}{P_{motor,elec,i}}$$
 
 Therefore:
 
-$$
-P_{motor,elec,i}$$
+$$P_{motor,elec,i}$$
 =
-$$\frac{P_{mech,i}}{\eta_{motor,i}}
-$$
+$$\frac{P_{mech,i}}{\eta_{motor,i}}$$
 
 Motor loss:
 
-$$
-P_{motor,loss,i}$$
+$$P_{motor,loss,i}$$
 =
-$$P_{motor,elec,i}-P_{mech,i}
-$$
+$$P_{motor,elec,i}-P_{mech,i}$$
 
 or:
 
-$$
-P_{motor,loss,i}$$
+$$P_{motor,loss,i}$$
 =
 $$P_{mech,i}
 \left(
 \frac{1}{\eta_{motor,i}}-1
-\right)
-$$
+\right)$$
 
 For a research-grade implementation, $\eta_{motor}$ should eventually be replaced by a torque-speed efficiency map.
 
@@ -286,38 +268,30 @@ For a research-grade implementation, $\eta_{motor}$ should eventually be replace
 
 Define:
 
-$$
-\eta_{inv,i}$$
+$$\eta_{inv,i}$$
 =
-$$\frac{P_{motor,elec,i}}{P_{inv,dc,i}}
-$$
+$$\frac{P_{motor,elec,i}}{P_{inv,dc,i}}$$
 
 Therefore:
 
-$$
-P_{inv,dc,i}$$
+$$P_{inv,dc,i}$$
 =
-$$\frac{P_{motor,elec,i}}{\eta_{inv,i}}
-$$
+$$\frac{P_{motor,elec,i}}{\eta_{inv,i}}$$
 
 Inverter loss:
 
-$$
-P_{inv,loss,i}$$
+$$P_{inv,loss,i}$$
 =
-$$P_{inv,dc,i}-P_{motor,elec,i}
-$$
+$$P_{inv,dc,i}-P_{motor,elec,i}$$
 
 or:
 
-$$
-P_{inv,loss,i}$$
+$$P_{inv,loss,i}$$
 =
 $$P_{motor,elec,i}
 \left(
 \frac{1}{\eta_{inv,i}}-1
-\right)
-$$
+\right)$$
 
 A constant efficiency may be used for the first-order model. A measured or manufacturer-provided efficiency map should replace it for final validation.
 
@@ -327,9 +301,7 @@ A constant efficiency may be used for the first-order model. A measured or manuf
 
 For a cable path with resistance $R_{cable,i}$:
 
-$$
-P_{cable,loss,i}=I_i^2R_{cable,i}
-$$
+$$P_{cable,loss,i}=I_i^2R_{cable,i}$$
 
 Voltage drop:
 
@@ -366,16 +338,13 @@ Architecture B has two traction paths:
 
 Total mechanical power:
 
-$$
-P_{mech,B}$$
+$$P_{mech,B}$$
 =
-$$P_{mech,RL}+P_{mech,RR}
-$$
+$$P_{mech,RL}+P_{mech,RR}$$
 
 Total battery-side traction power:
 
-$$
-P_{batt,B}$$
+$$P_{batt,B}$$
 =
 $$\sum_{i=RL,RR}
 \frac{P_{mech,i}}
@@ -383,16 +352,13 @@ $$\sum_{i=RL,RR}
 +
 $$P_{cable,loss,B}$$
 +
-$$P_{aux}
-$$
+$$P_{aux}$$
 
 Battery current:
 
-$$
-I_{batt,B}$$
+$$I_{batt,B}$$
 =
-$$\frac{P_{batt,B}}{V_{batt}}
-$$
+$$\frac{P_{batt,B}}{V_{batt}}$$
 
 ---
 
@@ -415,20 +381,17 @@ Architecture C has three traction paths:
 
 Total mechanical power:
 
-$$
-P_{mech,C}$$
+$$P_{mech,C}$$
 =
 $$P_{mech,F}$$
 +
 $$P_{mech,RL}$$
 +
-$$P_{mech,RR}
-$$
+$$P_{mech,RR}$$
 
 Total battery-side traction power:
 
-$$
-P_{batt,C}$$
+$$P_{batt,C}$$
 =
 $$\sum_{i=F,RL,RR}
 \frac{P_{mech,i}}
@@ -436,16 +399,13 @@ $$\sum_{i=F,RL,RR}
 +
 $$P_{cable,loss,C}$$
 +
-$$P_{aux}
-$$
+$$P_{aux}$$
 
 Battery current:
 
-$$
-I_{batt,C}$$
+$$I_{batt,C}$$
 =
-$$\frac{P_{batt,C}}{V_{batt}}
-$$
+$$\frac{P_{batt,C}}{V_{batt}}$$
 
 ---
 
@@ -477,22 +437,17 @@ This allows different power distributions without changing the total power ceili
 
 Overall traction efficiency:
 
-$$\frac{P_{mech,total}}
-{P_{batt,total}}
-$$
+$$\frac{P_{mech,total}}{P_{batt,total}}$$
 
 Total electrical loss:
 
-$$
-P_{loss,total}$$
+$$P_{loss,total}$$
 =
-$$P_{batt,total}-P_{mech,total}
-$$
+$$P_{batt,total}-P_{mech,total}$$
 
 Expanded:
 
-$$
-P_{loss,total}$$
+$$P_{loss,total}$$
 =
 $$P_{motor,loss}$$
 +
@@ -500,8 +455,7 @@ $$P_{inv,loss}$$
 +
 $$P_{cable,loss}$$
 +
-$$P_{aux}
-$$
+$$P_{aux}$$
 
 ---
 
@@ -533,8 +487,7 @@ $$V_{terminal}$$
 =
 $$V_{OCV}(SOC,T)$$
 -
-$$I_{batt}R_{pack}(SOC,T)
-$$
+$$I_{batt}R_{pack}(SOC,T)$$
 
 where:
 
@@ -563,27 +516,19 @@ until the operating point converges.
 
 At every simulation step:
 
-$$
-P_{batt}=V_{terminal}I_{batt}
-$$
+$$P_{batt}=V_{terminal}I_{batt}$$
 
 The controller must satisfy:
 
-$$
-P_{traction}\leq80\text{ kW}
-$$
+$$P_{traction}\leq80\text{ kW}$$
 
 The model should also check:
 
-$$
-I_{cell}\leq I_{cell,max}
-$$
+$$I_{cell}\leq I_{cell,max}$$
 
 and:
 
-$$
-T_{cell}\leq T_{cell,max}
-$$
+$$T_{cell}\leq T_{cell,max}$$
 
 The current and temperature limits are not interchangeable.
 
@@ -593,26 +538,22 @@ The current and temperature limits are not interchangeable.
 
 SOC is updated using battery current:
 
-$$
-SOC_{k+1}
+$$SOC_{k+1}$$
 =
-SOC_k
+$$SOC_k$$
 -
-\frac{I_{batt,k}\Delta t}{Q_{pack}3600}
-$$
+$$\frac{I_{batt,k}\Delta t}{Q_{pack}3600}$$
 
 for the selected discharge sign convention.
 
 A more complete model can include coulombic efficiency:
 
-$$
-SOC_{k+1}$$
+$$SOC_{k+1}$$
 =
 $$SOC_k$$
 -
 $$\frac{I_{batt,k}\Delta t}
-{\eta_{coul}Q_{pack}3600}
-$$
+{\eta_{coul}Q_{pack}3600}$$
 
 The usable SOC window is defined separately from the theoretical 0–100% cell capacity.
 
@@ -664,8 +605,7 @@ Those are validation stages.
 
 The electrical model feeds the battery and thermal models:
 
-$$
-P_{loss}
+$$P_{loss}
 \rightarrow
 Q_{heat}
 \rightarrow
@@ -673,8 +613,7 @@ T_{cell}
 \rightarrow
 R(SOC,T)
 \rightarrow
-V_{terminal}
-$$
+V_{terminal}$$
 
 The refined system becomes:
 
