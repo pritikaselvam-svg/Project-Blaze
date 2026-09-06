@@ -477,11 +477,8 @@ This allows different power distributions without changing the total power ceili
 
 Overall traction efficiency:
 
-$$
-\eta_{total}$$
-=
-$$\frac{P_{mech,total}}$$
-$${P_{batt,total}}
+$$\frac{P_{mech,total}}
+{P_{batt,total}}
 $$
 
 Total electrical loss:
