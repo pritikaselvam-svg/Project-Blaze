@@ -20,13 +20,11 @@ It covers:
 
 For a lumped component:
 
-$$
-mc_p\frac{dT}{dt}
+$$mc_p\frac{dT}{dt}$$
 =
-P_{generated}
+$$P_{generated}$$
 -
-P_{removed}
-$$
+$$P_{removed}$$
 
 where $m$ is mass, $c_p$ is specific heat capacity and $T$ is component temperature.
 
@@ -36,33 +34,27 @@ where $m$ is mass, $c_p$ is specific heat capacity and $T$ is component temperat
 
 First-order battery heat:
 
-$$
-P_{battery,heat}
+$$P_{battery,heat}$$
 =
-I_{batt}^2R_{pack}
-$$
+$$I_{batt}^2R_{pack}$$
 
 Using cell quantities:
 
-$$
-P_{battery,heat}
+$$P_{battery,heat}$$
 =
-N_{series}N_{parallel}
+$$N_{series}N_{parallel}
 I_{cell}^2R_{cell}
 $$
 
 The refined model uses:
 
-$$
-R_{cell}=R(SOC,T,I)
-$$
+$$R_{cell}=R(SOC,T,I)$$
 
 therefore:
 
-$$
-P_{battery,heat}
+$$P_{battery,heat}$$
 =
-N_{series}N_{parallel}
+$$N_{series}N_{parallel}
 I_{cell}^2
 R(SOC,T,I)
 $$
@@ -75,33 +67,25 @@ This is the main ohmic heat source.
 
 For a single equivalent battery temperature:
 
-$$
-m_{batt}c_{p,batt}
-\frac{dT_{batt}}{dt}
+$$m_{batt}c_{p,batt}\frac{dT_{batt}}{dt}$$
 =
-P_{battery,heat}
+$$P_{battery,heat}$$
 -
-P_{cool,batt}
-$$
+$$P_{cool,batt}$$
 
 A simple coolant coupling is:
 
-$$
-P_{cool,batt}
+$$P_{cool,batt}$$
 =
-UA_{batt}(T_{batt}-T_{coolant})
-$$
+$$UA_{batt}(T_{batt}-T_{coolant})$$
 
 Therefore:
 
-$$
-m_{batt}c_{p,batt}
-\frac{dT_{batt}}{dt}
+$$m_{batt}c_{p,batt}\frac{dT_{batt}}{dt}$$
 =
-P_{battery,heat}
+$$P_{battery,heat}$$
 -
-UA_{batt}(T_{batt}-T_{coolant})
-$$
+$$UA_{batt}(T_{batt}-T_{coolant})$$
 
 ---
 
@@ -109,28 +93,21 @@ $$
 
 For a liquid cooling loop:
 
-$$
-P_{cool}
+$$P_{cool}$$
 =
-\dot{m}c_{p,coolant}\Delta T_{coolant}
-$$
+$$\dot{m}c_{p,coolant}\Delta T_{coolant}$$
 
 Therefore:
 
-$$
-\Delta T_{coolant}
+$$\Delta T_{coolant}$$
 =
-\frac{P_{cool}}
-{\dot{m}c_{p,coolant}}
-$$
+$$\frac{P_{cool}}{\dot{m}c_{p,coolant}}$$
 
 Outlet temperature:
 
-$$
-T_{out}
+$$T_{out}$$
 =
-T_{in}+\Delta T_{coolant}
-$$
+$$T_{in}+\Delta T_{coolant}$$
 
 The coolant temperature rise must therefore come from the heat balance and flow rate rather than being assumed independently.
 
@@ -140,18 +117,15 @@ The coolant temperature rise must therefore come from the heat balance and flow 
 
 For each inverter:
 
-$$
-P_{inv,heat}
+$$P_{inv,heat}$$
 =
-P_{inv,loss}
-$$
+$$P_{inv,loss}$$
 
 If inverter efficiency is used:
 
-$$
-P_{inv,heat}
+$$P_{inv,heat}$$
 =
-P_{motor,elec}
+$$P_{motor,elec}
 \left(
 \frac{1}{\eta_{inv}}-1
 \right)
@@ -159,14 +133,12 @@ $$
 
 The thermal model is:
 
-$$
-m_{inv}c_{p,inv}
-\frac{dT_{inv}}{dt}
+$$m_{inv}c_{p,inv}$$
+$$\frac{dT_{inv}}{dt}$$
 =
-P_{inv,heat}
+$$P_{inv,heat}$$
 -
-UA_{inv}(T_{inv}-T_{coolant})
-$$
+$$UA_{inv}(T_{inv}-T_{coolant})$$
 
 ---
 
@@ -174,18 +146,15 @@ $$
 
 For each motor:
 
-$$
-P_{motor,heat}
+$$P_{motor,heat}$$
 =
-P_{motor,elec}-P_{motor,mech}
-$$
+$$P_{motor,elec}-P_{motor,mech}$$
 
 or:
 
-$$
-P_{motor,heat}
+$$P_{motor,heat}$$
 =
-P_{motor,mech}
+$$P_{motor,mech}
 \left(
 \frac{1}{\eta_{motor}}-1
 \right)
@@ -193,13 +162,12 @@ $$
 
 The lumped model is:
 
-$$
-m_{motor}c_{p,motor}
-\frac{dT_{motor}}{dt}
+$$m_{motor}c_{p,motor}
+\frac{dT_{motor}}{dt}$$
 =
-P_{motor,heat}
+$$P_{motor,heat}$$
 -
-UA_{motor}(T_{motor}-T_{coolant})
+$$UA_{motor}(T_{motor}-T_{coolant})
 $$
 
 A future detailed model can separate stator copper, iron, rotor and housing temperatures.
@@ -210,16 +178,13 @@ A future detailed model can separate stator copper, iron, rotor and housing temp
 
 If winding resistance is known:
 
-$$
-P_{cu}=I_{phase,rms}^2R_{phase}(T)
-$$
+$$P_{cu}=I_{phase,rms}^2R_{phase}(T)$$
 
 Resistance can be approximated as:
 
-$$
-R(T)
+$$R(T)$$
 =
-R_{ref}
+$$R_{ref}
 \left[
 1+\alpha(T-T_{ref})
 \right]
@@ -243,17 +208,15 @@ This is an important electro-thermal feedback mechanism.
 
 # 9. Total powertrain heat
 
-$$
-P_{heat,total}
+$$P_{heat,total}$$
 =
-P_{battery,heat}
+$$P_{battery,heat}
 +
 \sum P_{motor,heat}
 +
 \sum P_{inv,heat}
 +
-P_{other}
-$$
+P_{other}$$
 
 Heat should be tracked by subsystem rather than immediately combining everything into one temperature.
 
@@ -320,20 +283,17 @@ Architecture C may require greater cooling capacity because it has an additional
 
 An alternative steady-state model is:
 
-$$
-P_{cool}
+$$P_{cool}$$
 =
-\frac{T_{component}-T_{ambient}}
+$$\frac{T_{component}-T_{ambient}}
 {R_{\theta}}
 $$
 
 Temperature rise:
 
-$$
-\Delta T
+$$\Delta T$$
 =
-P_{loss}R_{\theta}
-$$
+$$P_{loss}R_{\theta}$$
 
 This is useful for early feasibility studies.
 
@@ -343,25 +303,20 @@ This is useful for early feasibility studies.
 
 Thermal capacitance:
 
-$$
-C_{th}=mc_p
-$$
+$$C_{th}=mc_p$$
 
 For a first-order component:
 
-$$
-C_{th}\frac{dT}{dt}
+$$C_{th}\frac{dT}{dt}$$
 =
-P_{loss}
+$$P_{loss}$$
 -
-\frac{T-T_{ambient}}{R_{\theta}}
+$$\frac{T-T_{ambient}}{R_{\theta}}
 $$
 
 Time constant:
 
-$$
-\boxed{\tau=R_{\theta}C_{th}}
-$$
+$$\boxed{\tau=R_{\theta}C_{th}}$$
 
 This matters because a short power burst and continuous power demand are different thermal problems.
 
@@ -371,9 +326,7 @@ This matters because a short power burst and continuous power demand are differe
 
 Ambient temperature is an input:
 
-$$
-T_{ambient}=T_{amb}
-$$
+$$T_{ambient}=T_{amb}$$
 
 The simulation should eventually evaluate multiple representative ambient conditions.
 
@@ -383,18 +336,15 @@ The simulation should eventually evaluate multiple representative ambient condit
 
 For coolant-to-air heat rejection:
 
-$$
-Q_{rad}
+$$Q_{rad}$$
 =
-\dot{m}_{air}c_{p,air}
+$$\dot{m}_{air}c_{p,air}
 (T_{air,out}-T_{air,in})
 $$
 
 The radiator must satisfy:
 
-$$
-Q_{rad}\geq Q_{required}
-$$
+$$Q_{rad}\geq Q_{required}$$
 
 Actual radiator performance depends on:
 
@@ -503,65 +453,52 @@ At each simulation timestep $\Delta t$:
 
 ### Step 1 — Calculate motor torque and speed
 
-$$
-P_{mech}=T\omega
-$$
+$$P_{mech}=T\omega$$
 
 ### Step 2 — Calculate motor and inverter losses
 
-$$
-P_{loss}=P_{motor,loss}+P_{inv,loss}
-$$
+$$P_{loss}=P_{motor,loss}+P_{inv,loss}$$
 
 ### Step 3 — Calculate battery current
 
-$$
-I_{batt}
+$$I_{batt}$$
 =
-\frac{P_{batt}}{V_{terminal}}
+$$\frac{P_{batt}}{V_{terminal}}
 $$
 
 ### Step 4 — Calculate battery heat
 
-$$
-P_{battery,heat}=I_{batt}^2R_{pack}
-$$
+$$P_{battery,heat}=I_{batt}^2R_{pack}$$
 
 ### Step 5 — Update SOC
 
-$$
-SOC_{k+1}
+$$SOC_{k+1}$$
 =
-SOC_k
+$$SOC_k$$
 -
-\frac{I_{batt}\Delta t}
-{Q_{pack}3600}
-$$
+$$\frac{I_{batt}\Delta t}
+{Q_{pack}3600}$$
 
 ### Step 6 — Update component temperature
 
-$$
-T_{k+1}
+$$T_{k+1}$$
 =
-T_k+
+$$T_k+
 \frac{\Delta t}{mc_p}
 (P_{loss}-P_{cool})
 $$
 
 ### Step 7 — Update resistance
 
-$$
-R_{k+1}=R(SOC_{k+1},T_{k+1})
-$$
+$$R_{k+1}=R(SOC_{k+1},T_{k+1})$$
 
 ### Step 8 — Update terminal voltage
 
-$$
-V_{k+1}
+$$V_{k+1}$$
 =
-V_{OCV}(SOC_{k+1},T_{k+1})
+$$V_{OCV}(SOC_{k+1},T_{k+1})$$
 -
-I_{k+1}R_{pack,k+1}
+$$I_{k+1}R_{pack,k+1}
 $$
 
 ### Step 9 — Check limits
@@ -632,10 +569,9 @@ If a limit is violated, the model reduces available torque or power according to
 
 A combined available-power constraint is:
 
-$$
-P_{available}
+$$P_{available}$$
 =
-\min
+$$\min
 \left(
 P_{motor},
 P_{inverter},
