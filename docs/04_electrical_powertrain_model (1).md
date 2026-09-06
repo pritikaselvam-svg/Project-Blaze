@@ -194,11 +194,11 @@ $$
 The battery must supply:
 
 $$
-P_{batt,total}
+P_{batt,total}$$
 =
-\sum_i P_{batt,i}
+$$\sum_i P_{batt,i}$$
 +
-P_{aux}
+$$P_{aux}
 $$
 
 where $P_{aux}$ includes non-traction electrical loads such as VCU, sensors, pumps, fans, instrumentation and low-voltage conversion losses.
